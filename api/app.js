@@ -46,8 +46,8 @@ async function sendPix(value, pixAddressKey, access_token) {
       },
       validateStatus: status => status >= 200 && status < 500,
       data: {
-        value,
-        pixAddressKey
+        value: value,
+        pixAddressKey: pixAddressKey
       }
     });
 
