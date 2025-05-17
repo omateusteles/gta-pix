@@ -10,7 +10,7 @@ public partial class MainPage : ContentPage {
     readonly Random _random = new Random();
 
     private Timer? _nameAnimationTimer;
-    private const int NameAnimationDuration = 5000; // 5s
+    private const int NameAnimationDuration = 3000; // 3s
     private const int NameAnimationInterval = 100; // 100ms
     private int _nameAnimationElapsedTime = 0;
 

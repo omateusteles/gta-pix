@@ -4,161 +4,182 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MobileApp.MainPage">
 
-    <VerticalStackLayout
+    <Grid
+        RowDefinitions="*, Auto"
         Padding="32"
-        Spacing="20">
+        RowSpacing="24">
 
-        <Label Text="🎉 Sorteio Rápido 🎉"
-               FontSize="32"
-               FontAttributes="Bold"
-               HorizontalOptions="Center"
-               TextColor="#004D40" />
+        <VerticalStackLayout
+            Spacing="24">
 
-        <Label Text="Participantes:" FontSize="20" TextColor="#00796B" />
+            <Label Text="🎉 Sorteio Rápido 🎉"
+                   FontSize="32"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="#004D40" />
 
-        <StackLayout>
-            <Label Text="Ewerton" FontSize="18" TextColor="#00796B" />
-            <Label Text="Carla" FontSize="18" TextColor="#00796B" />
-            <Label Text="Luiz" FontSize="18" TextColor="#00796B" />
-            <Label Text="Fernanda" FontSize="18" TextColor="#00796B" />
-        </StackLayout>
+            <Label Text="Participantes:"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   TextColor="#00796B" />
 
-        <Grid
-            ColumnDefinitions="4*,1*"
-            ColumnSpacing="16">
+            <StackLayout>
+                <Label Text="Ewerton" FontSize="18" TextColor="#00796B" />
+                <Label Text="Carla" FontSize="18" TextColor="#00796B" />
+                <Label Text="Luiz" FontSize="18" TextColor="#00796B" />
+                <Label Text="Fernanda" FontSize="18" TextColor="#00796B" />
+            </StackLayout>
 
-            <Border
-                StrokeShape="RoundRectangle 8"
-                Grid.Column="0"
-                BackgroundColor="White"
-                Padding="15"
-                HeightRequest="50">
-
-                <Label
-                    x:Name="NameResultLabel"
-                    FontSize="20"
-                    TextColor="#004D40"
-                    HorizontalOptions="Center" />
-
-            </Border>
-
-
-            <Button
-                Grid.Column="1"
-                x:Name="DrawNameButton"
-                Text="🎲"
-                BackgroundColor="#26A69A"
-                TextColor="White"
-                FontAttributes="Bold"
-                CornerRadius="10"
-                HeightRequest="50"
-                Clicked="OnDrawNameButtonClicked" />
-
-        </Grid>
-
-        <Grid
-            ColumnDefinitions="4*, 1*"
-            ColumnSpacing="16">
+            <Label Text="Sorteado:"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   TextColor="#00796B" />
 
             <Grid
-                Grid.Column="0"
-                ColumnDefinitions="*, *, Auto, *, *"
-                ColumnSpacing="8">
+                ColumnDefinitions="4*,1*"
+                ColumnSpacing="16">
 
                 <Border
+                    StrokeShape="RoundRectangle 8"
                     Grid.Column="0"
-                    StrokeShape="RoundRectangle 8"
                     BackgroundColor="White"
-                    WidthRequest="50"
+                    Padding="15"
                     HeightRequest="50">
 
                     <Label
-                        x:Name="Value4Label"
-                        Text="0"
+                        x:Name="NameResultLabel"
                         FontSize="20"
                         TextColor="#004D40"
-                        VerticalTextAlignment="Center"
                         HorizontalOptions="Center" />
 
                 </Border>
 
-                <Border
+
+                <Button
                     Grid.Column="1"
-                    StrokeShape="RoundRectangle 8"
-                    BackgroundColor="White"
-                    WidthRequest="50"
-                    HeightRequest="50">
-
-                    <Label
-                        x:Name="Value3Label"
-                        Text="0"
-                        FontSize="20"
-                        TextColor="#004D40"
-                        VerticalTextAlignment="Center"
-                        HorizontalOptions="Center" />
-
-                </Border>
-
-                <Label
-                    Grid.Column="2"
-                    Text=","
-                    FontSize="32"
-                    TextColor="#004D40"
-                    VerticalTextAlignment="End"
-                    HorizontalOptions="Center" />
-
-                <Border
-                    Grid.Column="3"
-                    StrokeShape="RoundRectangle 8"
-                    BackgroundColor="White"
-                    WidthRequest="50"
-                    HeightRequest="50">
-
-                    <Label
-                        x:Name="Value2Label"
-                        Text="0"
-                        FontSize="20"
-                        TextColor="#004D40"
-                        VerticalTextAlignment="Center"
-                        HorizontalOptions="Center" />
-
-                </Border>
-
-                <Border
-                    Grid.Column="4"
-                    StrokeShape="RoundRectangle 8"
-                    BackgroundColor="White"
-                    WidthRequest="50"
-                    HeightRequest="50">
-
-                    <Label
-                        x:Name="Value1Label"
-                        Text="0"
-                        FontSize="20"
-                        TextColor="#004D40"
-                        VerticalTextAlignment="Center"
-                        HorizontalOptions="Center" />
-
-                </Border>
+                    x:Name="DrawNameButton"
+                    Text="🎲"
+                    BackgroundColor="#26A69A"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    CornerRadius="10"
+                    HeightRequest="50"
+                    Clicked="OnDrawNameButtonClicked" />
 
             </Grid>
 
-            <Button
-                Grid.Column="1"
-                x:Name="DrawValueButton"
-                Text="🎲"
-                BackgroundColor="#26A69A"
-                CornerRadius="10"
-                HeightRequest="50"
-                Clicked="OnDrawValueClicked" />
+            <Label Text="Valor:"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   TextColor="#00796B" />
 
-        </Grid>
+            <Grid
+                ColumnDefinitions="4*, 1*"
+                ColumnSpacing="16">
 
-        <Label Text="Boa sorte para todos!"
-               FontSize="16"
-               HorizontalOptions="Center"
-               TextColor="#00796B" />
+                <Grid
+                    Grid.Column="0"
+                    ColumnDefinitions="*, *, Auto, *, *"
+                    ColumnSpacing="8">
 
-    </VerticalStackLayout>
+                    <Border
+                        Grid.Column="0"
+                        StrokeShape="RoundRectangle 8"
+                        BackgroundColor="White"
+                        WidthRequest="50"
+                        HeightRequest="50">
+
+                        <Label
+                            x:Name="Value4Label"
+                            Text="0"
+                            FontSize="20"
+                            TextColor="#004D40"
+                            VerticalTextAlignment="Center"
+                            HorizontalOptions="Center" />
+
+                    </Border>
+
+                    <Border
+                        Grid.Column="1"
+                        StrokeShape="RoundRectangle 8"
+                        BackgroundColor="White"
+                        WidthRequest="50"
+                        HeightRequest="50">
+
+                        <Label
+                            x:Name="Value3Label"
+                            Text="0"
+                            FontSize="20"
+                            TextColor="#004D40"
+                            VerticalTextAlignment="Center"
+                            HorizontalOptions="Center" />
+
+                    </Border>
+
+                    <Label
+                        Grid.Column="2"
+                        Text=","
+                        FontSize="32"
+                        TextColor="#004D40"
+                        VerticalTextAlignment="End"
+                        HorizontalOptions="Center" />
+
+                    <Border
+                        Grid.Column="3"
+                        StrokeShape="RoundRectangle 8"
+                        BackgroundColor="White"
+                        WidthRequest="50"
+                        HeightRequest="50">
+
+                        <Label
+                            x:Name="Value2Label"
+                            Text="0"
+                            FontSize="20"
+                            TextColor="#004D40"
+                            VerticalTextAlignment="Center"
+                            HorizontalOptions="Center" />
+
+                    </Border>
+
+                    <Border
+                        Grid.Column="4"
+                        StrokeShape="RoundRectangle 8"
+                        BackgroundColor="White"
+                        WidthRequest="50"
+                        HeightRequest="50">
+
+                        <Label
+                            x:Name="Value1Label"
+                            Text="0"
+                            FontSize="20"
+                            TextColor="#004D40"
+                            VerticalTextAlignment="Center"
+                            HorizontalOptions="Center" />
+
+                    </Border>
+
+                </Grid>
+
+                <Button
+                    Grid.Column="1"
+                    x:Name="DrawValueButton"
+                    Text="🎲"
+                    BackgroundColor="#26A69A"
+                    CornerRadius="10"
+                    HeightRequest="50"
+                    Clicked="OnDrawValueClicked" />
+
+            </Grid>
+        </VerticalStackLayout>
+
+        <Label
+            Grid.Row="1"
+            Text="Boa sorte para todos!"
+            FontSize="16"
+            TextColor="#00796B"
+            HorizontalOptions="Center"
+            VerticalOptions="End" />
+
+    </Grid>
 
 </ContentPage>
