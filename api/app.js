@@ -21,7 +21,7 @@ const rl = readline.createInterface({
         if (success) {
             console.log("✅ Transferência criada com sucesso!");
         } else {
-            console.log("⚠️  Falhou (${statusCode}): ${errorMessage}");
+            console.log("⚠️ Falhou (${statusCode}): ${errorMessage}");
         }
     } catch (err) {
         console.error("❌ Erro inesperado:", err);
