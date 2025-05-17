@@ -35,8 +35,33 @@ function ask(pergunta) {
 }
 //#endregion
 
+const cpfValidatorRegex = /^[0-9]{11}$/;
+const cnpjValidatorRegex = /^[0-9]{14}$/;
+const phoneValidatorRegex = /^\+[1-9]\d{1,14}$/;
+const emailValidatorRegex = /^[a-z0-9.!#$&'*+/=?^_`{|}~-]+@[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?(?:\.[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?)*$/;
+
 async function sendPix(value, pixAddressKey, access_token) {
     try {
+        value = parseFloat(value)
+
+        if (isNaN(value) || value <= 0) {
+            return {
+                success: false,
+                errorMessage: "O valor da transferência precisa ser maior do que zero. Se fodeu.",
+                statusCode: 400,
+            };
+        }
+
+        const pixAddressKeyType = buildAddressKeyType(pixAddressKey);
+
+        if (!pixAddressKeyType) {
+            return {
+                success: false,
+                errorMessage: "A chave pix é inválida. Se fodeu.",
+                statusCode: 400,
+            };
+        }
+
         const response = await axios({
             method: "POST",
             url: "https://api.asaas.com/v3/transfers",
@@ -47,7 +72,8 @@ async function sendPix(value, pixAddressKey, access_token) {
             validateStatus: (status) => status >= 200 && status < 500,
             data: {
                 value: value,
-                pixAddressKey: pixAddressKey
+                pixAddressKey: pixAddressKey,
+                pixAddressKeyType: pixAddressKeyType
             }
         });
 
@@ -62,4 +88,15 @@ async function sendPix(value, pixAddressKey, access_token) {
     } catch (error) {
         return { success: false, errorMessage: error.message, statusCode: 500 };
     }
+}
+
+function buildAddressKeyType(pixAddressKey) {
+    if (!pixAddressKey) return null;
+
+    if (cpfValidatorRegex.test(pixAddressKey)) return "CPF";
+    if (cnpjValidatorRegex.test(pixAddressKey)) return "CNPJ";
+    if (phoneValidatorRegex.test(pixAddressKey)) return "PHONE";
+    if (emailValidatorRegex.test(pixAddressKey)) return "EMAIL";
+
+    return null;
 }
