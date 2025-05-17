@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AppSorteiOS.Views;
+namespace MobileApp.Views;
 
 public partial class WinnerPendingView : ContentView
 {
