@@ -1,68 +1,65 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
+
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MobileApp.MainPage"
-             >
+             x:Class="MobileApp.MainPage">
 
-     <VerticalStackLayout Padding="30" Spacing="20" HorizontalOptions="Center" VerticalOptions="Center">
+    <VerticalStackLayout Padding="30" Spacing="20" HorizontalOptions="Center" VerticalOptions="Center">
 
-    <!-- Título -->
-    <Label Text="🎉 Sorteio Rápido 🎉"
-           FontSize="32"
-           FontAttributes="Bold"
-           HorizontalOptions="Center"
-           TextColor="#004D40" />
+        <Label Text="🎉 Sorteio Rápido 🎉"
+               FontSize="32"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               TextColor="#004D40" />
 
-    <!-- Lista de Participantes -->
-    <Label Text="Participantes:" FontSize="20" TextColor="#00796B" />
+        <Label Text="Participantes:" FontSize="20" TextColor="#00796B" />
 
-    <StackLayout>
-      <Label Text="Ewerton" FontSize="18" TextColor="#00796B" />
-      <Label Text="Carla" FontSize="18" TextColor="#00796B" />
-      <Label Text="Luiz" FontSize="18" TextColor="#00796B" />
-      <Label Text="Fernanda" FontSize="18" TextColor="#00796B" />
-    </StackLayout>
+        <StackLayout>
+            <Label Text="Ewerton" FontSize="18" TextColor="#00796B" />
+            <Label Text="Carla" FontSize="18" TextColor="#00796B" />
+            <Label Text="Luiz" FontSize="18" TextColor="#00796B" />
+            <Label Text="Fernanda" FontSize="18" TextColor="#00796B" />
+        </StackLayout>
 
-    <Grid
-        ColumnDefinitions="20*,80*"
-        ColumnSpacing="15">
+        <Grid
+            ColumnDefinitions="80*,20*"
+            ColumnSpacing="15">
 
-        <!-- Botão Sortear -->
-        <Button
-            Grid.Column="0"
-            x:Name="SortearButton"
-                Text="Sortear"
+            <Border
+                StrokeShape="RoundRectangle 8"
+                Grid.Column="0"
+                BackgroundColor="White"
+                Padding="15"
+                HeightRequest="50"
+                HorizontalOptions="Fill">
+
+                <Label
+                    x:Name="NameResultLabel"
+                    FontSize="20"
+                    TextColor="#004D40"
+                    HorizontalOptions="Center" />
+
+            </Border>
+
+
+            <Button
+                Grid.Column="1"
+                x:Name="DrawNameButton"
+                Text="🎲"
                 BackgroundColor="#26A69A"
                 TextColor="White"
                 FontAttributes="Bold"
                 CornerRadius="10"
                 HeightRequest="50"
-                Clicked="OnSortearClicked" />
+                Clicked="OnDrawNameButtonClicked" />
 
-        <Border
-            StrokeShape="RoundRectangle 8"
-            Grid.Column="1"
-            BackgroundColor="White"
-            Padding="15"
-            HeightRequest="50"
-            HorizontalOptions="Fill">
+        </Grid>
 
-            <Label
-                x:Name="ResultadoLabel"
-                FontSize="20"
-                TextColor="#004D40"
-                HorizontalOptions="Center" />
+        <Label Text="Boa sorte para todos!"
+               FontSize="16"
+               HorizontalOptions="Center"
+               TextColor="#00796B" />
 
-        </Border>
-
-    </Grid>
-
-    <!-- Rodapé -->
-    <Label Text="Boa sorte para todos!"
-           FontSize="16"
-           HorizontalOptions="Center"
-           TextColor="#00796B" />
-
-  </VerticalStackLayout>
+    </VerticalStackLayout>
 
 </ContentPage>
