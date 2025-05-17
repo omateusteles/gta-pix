@@ -82,7 +82,7 @@ async function sendPix(value, pixAddressKey, access_token) {
 
         const errorMessage = success
             ? null
-            : data?.errors[0].description || "Erro desconhecido";
+            : data?.errors[0].description || "Erro desconhecido. Se fodeu.";
 
         return { success, errorMessage, statusCode: status };
     } catch (error) {
