@@ -1,4 +1,6 @@
 const axios = require('axios');
+
+//#region DEBUG
 const readline = require('readline');
 
 const rl = readline.createInterface({
@@ -31,6 +33,7 @@ const rl = readline.createInterface({
 function ask(pergunta) {
   return new Promise(res => rl.question(pergunta, res));
 }
+//#endregion
 
 async function sendPix(value, pixAddressKey, access_token) {
   try {
