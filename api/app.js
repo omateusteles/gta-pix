@@ -53,7 +53,7 @@ async function sendPix(value, pixAddressKey, access_token) {
 
     const { status, data } = response;
     const success = data?.success ?? (status >= 200 && status < 300);
-    const errorMessage = success ? undefined : data?.errorMessage || 'Erro desconhecido';
+    const errorMessage = success ? null : data?.errors[0].description || 'Erro desconhecido';
 
     return { success, errorMessage, statusCode: status };
 
