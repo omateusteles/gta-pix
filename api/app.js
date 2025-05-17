@@ -32,14 +32,7 @@ function ask(pergunta) {
   return new Promise(res => rl.question(pergunta, res));
 }
 
-/**
- * Cria a transferência Pix no Asaas
- * @param {number} value
- * @param {string} pixAddressKey
- * @returns {{success:boolean, errorMessage?:string, statusCode:number}}
- */
 async function sendPix(value, pixAddressKey, access_token) {
-
   try {
     const response = await axios({
       method: 'POST',
