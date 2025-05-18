@@ -124,8 +124,6 @@ npm install
 node index.js
 ```
 
-A API estará rodando em: `http://localhost:3003`
-
 4. Configurações da API do Asaas
 
     4.1. Crie uma conta Asaas para realizar o envio de Pix, o que pode ser feito por [aqui](https://www.asaas.com/onboarding/createAccount?customerSignUpOriginChannel=DOCUMENTATION). 
