@@ -6,7 +6,13 @@
 3. [Mod](#mod)
 4. [Contato](#contato)
 
-## APP
+## APP 
+
+🪄 Construída em .NET MAUI, o app é usado para auxiliar a demonstração do mod de forma cômica e inútil, o app supostamente sorteia um dos jurados para serem abençoados com um Pix direto de Los Santos, mas na realidade escolherá entre uma lista pré-definida de participantes do hackathon. Além disso, o app também sorteia o valor da benção, aparentando sortear até R$ 99,99, mas na realidade sempre sorteia valores abaixo de R$ 1.
+
+### 🛠️ Tecnologias Utilizadas
+
+- [.Net MAUI](https://dotnet.microsoft.com/pt-br/apps/maui)
 
 ## API
 
@@ -125,6 +131,7 @@ node index.js
 ```
 
 4. Configurações da API do Asaas
+
     4.1. Crie uma conta Asaas para realizar o envio de Pix, o que pode ser feito por [aqui](https://www.asaas.com/onboarding/createAccount?customerSignUpOriginChannel=DOCUMENTATION). 
  
     4.2. Gere a chave da API. Acesse a [documentação](https://docs.asaas.com/docs/autentica%C3%A7%C3%A3o-1) para mais informações.
