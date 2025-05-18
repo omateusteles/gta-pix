@@ -37,18 +37,18 @@
                         TextColor="#00796B" />
                     <Label Text="Marlon França" FontSize="18" TextColor="#00796B" />
                 </HorizontalStackLayout>
-               <HorizontalStackLayout
-                   Spacing="10"
-                   HorizontalOptions="Center">
-                   <Label
-                       Text="Luísa Kinas,"
-                       FontSize="18"
-                       TextColor="#00796B" />
-                   <Label
-                       Text="Lauro Gripa"
-                       FontSize="18"
-                       TextColor="#00796B" />
-               </HorizontalStackLayout>
+                <HorizontalStackLayout
+                    Spacing="10"
+                    HorizontalOptions="Center">
+                    <Label
+                        Text="Luísa Kinas,"
+                        FontSize="18"
+                        TextColor="#00796B" />
+                    <Label
+                        Text="Lauro Gripa"
+                        FontSize="18"
+                        TextColor="#00796B" />
+                </HorizontalStackLayout>
                 <Label Text="Lygia Veny Casas"
                        FontSize="18"
                        TextColor="#00796B"
@@ -79,7 +79,6 @@
                         HorizontalOptions="Center" />
 
                 </Border>
-
 
                 <Button
                     Grid.Column="1"
@@ -199,6 +198,7 @@
                     Clicked="OnDrawValueClicked" />
 
             </Grid>
+
         </VerticalStackLayout>
 
         <Label
@@ -219,7 +219,6 @@
             HeightRequest="300"
             WidthRequest="300" />
 
-
         <controls:SKLottieView
             x:Name="cashLottie"
             Margin="0,0,50,0"
@@ -233,6 +232,7 @@
 
         <AbsoluteLayout
             VerticalOptions="Center">
+
             <Label
                 x:Name="scrollingSortLabel"
                 FontSize="50"
@@ -242,6 +242,7 @@
                 TextTransform="Uppercase"
                 AbsoluteLayout.LayoutBounds="1,0.5,AutoSize,AutoSize"
                 AbsoluteLayout.LayoutFlags="PositionProportional" />
+
         </AbsoluteLayout>
 
     </Grid>

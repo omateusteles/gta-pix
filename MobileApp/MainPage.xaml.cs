@@ -5,7 +5,7 @@ namespace MobileApp;
 
 public partial class MainPage {
 
-    readonly string[] _participants = { "Pokemaobr", "Marlon França", "Luísa Kinas", "Lauro Gripa", "Lygia Veny Casas" };
+    readonly string[] _decoyNames = { "Pokemaobr", "Marlon França", "Luísa Kinas", "Lauro Gripa", "Lygia Veny Casas" };
     readonly string[] _validNames = { "Phelipe Pereira", "Pedro Kons"};
 
     readonly Random _random = new Random();
@@ -22,7 +22,6 @@ public partial class MainPage {
     private int _valueAnimationElapsedTime = 0;
 
     public MainPage() {
-
         InitializeComponent();
     }
 
@@ -114,7 +113,7 @@ public partial class MainPage {
     }
 
     private string GetRandomName() {
-        return _participants[_random.Next(_participants.Length)];
+        return _decoyNames[_random.Next(_decoyNames.Length)];
     }
 
     private string DrawFinalName() {
