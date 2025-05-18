@@ -128,11 +128,11 @@ A API estará rodando em: `http://localhost:3003`
 
 4. Configurações da API do Asaas
 
-    4.1 Crie uma conta Asaas para realizar o envio de Pix, o que pode ser feito por [aqui](https://www.asaas.com/onboarding/createAccount?customerSignUpOriginChannel=DOCUMENTATION). 
+    4.1. Crie uma conta Asaas para realizar o envio de Pix, o que pode ser feito por [aqui](https://www.asaas.com/onboarding/createAccount?customerSignUpOriginChannel=DOCUMENTATION). 
  
-    4.2 Gere a chave da API. Acesse a [documentação](https://docs.asaas.com/docs/autentica%C3%A7%C3%A3o-1) para mais informações.
+    4.2. Gere a chave da API. Acesse a [documentação](https://docs.asaas.com/docs/autentica%C3%A7%C3%A3o-1) para mais informações.
 
-    4.3 Configure o webhook para autorização de transferências. Acesse a [documentação](https://docs.asaas.com/docs/mecanismo-para-validacao-de-saque-via-webhooks) para mais informações.
+    4.3. Configure o webhook para autorização de transferências. Acesse a [documentação](https://docs.asaas.com/docs/mecanismo-para-validacao-de-saque-via-webhooks) para mais informações.
 
 ---
 
