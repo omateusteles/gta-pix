@@ -2,7 +2,7 @@ import AsaasManager from './managers/asaas-manager.js'
 import express from 'express';
 
 const app = express();
-const PORT = process.env.PORT || 3003;
+const PORT = 3003;
 
 app.use(express.json());
 
