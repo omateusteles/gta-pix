@@ -136,13 +136,6 @@ A API estará rodando em: `http://localhost:3003`
 
 ---
 
-### ⚠️ Observações
-
-- O token de acesso do Asaas **deve ser passado no header** `access_token`.
-- A integração depende da classe `AsaasManager`, que deve conter a lógica para chamada da API do Asaas.
-
----
-
 ## MOD
 
 ## 📫 Contato
