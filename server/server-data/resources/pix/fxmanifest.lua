@@ -6,7 +6,6 @@ dependency 'webpack'
 dependency 'yarn'
 
 webpack_config 'client.config.js'
-webpack_config 'server.config.js'
 
 client_script 'dist/client.js'
 client_script 'src/client/bank_marker.lua'

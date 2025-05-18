@@ -17,11 +17,6 @@
   resolved "https://registry.yarnpkg.com/@citizenfx/server/-/server-1.0.2956-1.tgz#04373c2500cc25f083c4e229c20b23339fe6a80f"
   integrity sha512-B9fZcU8FbdYS9VQMy/T1fGTQfdQU9E3LHx2eK7dEFGB0fSSWMqwwrfPJKbW1HLRzvgS9+bQms1h9otvLFMlGzg==
 
-"@citizenfx/server@^2.0.14862-1":
-  version "2.0.14862-1"
-  resolved "https://registry.yarnpkg.com/@citizenfx/server/-/server-2.0.14862-1.tgz#bc584a52cedf815d11fdd85cb5c15172642f26e9"
-  integrity sha512-I6XnxIGBhskPe9S+q1OQLDqs6TYw1RhX06K6jUg+n0hGITYools6VBIIhdPe2uUlHA+76qJajQlV9ONeR3mDig==
-
 "@discoveryjs/json-ext@^0.5.0":
   version "0.5.7"
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.7.tgz#1d572bfbbe14b7704e0ba0f39b74815b84870d70"

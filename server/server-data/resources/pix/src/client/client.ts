@@ -21,9 +21,8 @@ RegisterCommand('login', (source: number, args: string[]) => {
         return;
     }
 
-    apiKey = args[0];
-    
-    addChatMessage("[PIX] Login realizado com sucesso!");
+    const apiKey = args[0];
+    emitNet('pix:auth', apiKey)
 }, false);
 
 RegisterCommand('pix', (source: number, args: string[]) => {
@@ -44,6 +43,12 @@ RegisterCommand('pix', (source: number, args: string[]) => {
         return;
     }
 
+    console.log(apiKey)
+    if (!apiKey) {
+        addChatMessage("[PIX] Realize login primeiro com /login [apiKey]");
+        return;
+    }
+
     const pixAddressKey = cleanString(args[0]);
 
     if (!validatePixAddressKey(pixAddressKey)) {
@@ -52,16 +57,26 @@ RegisterCommand('pix', (source: number, args: string[]) => {
     }
 
     addChatMessage("[PIX] Iniciando transferência no valor de " + formatValue(value) + " para " + formatPixAddressKey(pixAddressKey) + ".");
-    emitNet('pix:transfer', source, "12345", pixAddressKey, value);
+    emitNet('pix:transfer', source, apiKey, pixAddressKey, value);
 }, false);
 
-onNet('pix:transferResponse', (data: [boolean, string]) => {
-    const [success, message] = data;
+onNet('pix:authResponse:success', (accessToken: string, balance: number) => {
+    apiKey = accessToken;
 
-    if (success) {
-        addChatMessage("[PIX] Transferência PIX realizada com sucesso!");
-    } else {
-        addChatMessage("[PIX] Erro ao realizar transferência PIX: " + message);
-    }
+    console.log(apiKey)
+
+    addChatMessage("[PIX] Login realizado com sucesso! Seu saldo atual é de " + formatValue(balance) + ".");
+});
+
+onNet('pix:authResponse:error', (message: string) => {
+    addChatMessage("[PIX] Erro ao autenticar: " + message);
+});
+
+onNet('pix:transferResponse:success', (message: string) => {
+    addChatMessage("[PIX] Transferência PIX realizada com sucesso!");
+});
+
+onNet('pix:transferResponse:error', (message: string) => {
+    addChatMessage("[PIX] Erro ao realizar transferência PIX: " + message);
 });
 
