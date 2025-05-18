@@ -1,8 +1,8 @@
 # PIX DO GTA
 
 # Sumário
+2. [APP](#app)
 1. [API](#api)
-2. [App mobile](#app)
 3. [Mod](#mod)
 4. [Contato](#contato)
 
