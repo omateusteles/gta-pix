@@ -6,7 +6,7 @@
 3. [Mod](#mod)
 4. [Contato](#contato)
 
-## 📱 APP 
+## APP 
 
 🪄 Construída em .NET MAUI, o app é usado para auxiliar a demonstração do mod de forma cômica e inútil, o app supostamente sorteia um dos jurados para serem abençoados com um Pix direto de Los Santos, mas na realidade escolherá entre uma lista pré-definida de participantes do hackathon. Além disso, o app também sorteia o valor da benção, aparentando sortear até R$ 99,99, mas na realidade sempre sorteia valores abaixo de R$ 1.
 
