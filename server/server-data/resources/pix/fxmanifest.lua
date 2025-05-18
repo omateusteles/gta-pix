@@ -10,5 +10,4 @@ webpack_config 'server.config.js'
 
 client_script 'dist/client.js'
 client_script 'src/client/bank_marker.lua'
-
-server_script 'dist/server.js'
+server_script 'src/server/server.lua'

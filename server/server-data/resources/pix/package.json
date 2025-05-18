@@ -5,8 +5,7 @@
   "license": "MIT",
   "scripts": {
     "build:client": "export NODE_OPTIONS=--openssl-legacy-provider && yarn webpack --config ./client.config.js",
-    "build:server": "export NODE_OPTIONS=--openssl-legacy-provider && yarn webpack --config ./server.config.js",
-    "build": "yarn build:client && yarn build:server"
+    "build": "yarn build:client"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.8.0",
@@ -22,7 +21,6 @@
   },
   "dependencies": {
     "@citizenfx/client": "^2.0.15015-1",
-    "@citizenfx/server": "^2.0.14862-1",
     "fivem.js": "https://github.com/devzolo/fivem.js.git"
   }
 }
