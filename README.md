@@ -137,6 +137,64 @@ node index.js
 
 ## MOD
 
+# Servidor FiveM PIX
+
+Este é um servidor FiveM com integração PIX.
+
+## Requisitos
+
+- Node.js 16.x ou superior
+- Yarn
+- FiveM Server
+
+## Instalação
+
+1. Clone o repositório
+2. Instale as dependências:
+```bash
+yarn install
+```
+
+3. Compile o projeto:
+```bash
+yarn build
+```
+
+## Configuração do Servidor FiveM
+
+1. Certifique-se de que o FiveM Server está instalado
+2. Copie a pasta `pix` para o diretório `resources` do seu servidor FiveM
+3. Adicione a seguinte linha ao seu `server.cfg`:
+```
+ensure pix
+```
+
+## Iniciando o Servidor
+
+1. Inicie o servidor FiveM usando o comando:
+```bash
+./sh run.sh
+```
+
+## Comandos Disponíveis
+
+- `/pix` - Inicia uma transferência PIX
+
+## Estrutura do Projeto
+
+- `src/client/` - Código do lado do cliente
+- `src/server/` - Código do lado do servidor
+- `dist/` - Arquivos compilados
+
+## Desenvolvimento
+
+Para desenvolvimento, você pode usar:
+```bash
+yarn build:client
+```
+
+Isso irá compilar apenas o código do cliente. 
+
 ## 📫 Contato
 
 Em caso de dúvidas ou sugestões, abra uma [issue](https://github.com/omateusteles/gta-pix/issues) ou envie um PR!
