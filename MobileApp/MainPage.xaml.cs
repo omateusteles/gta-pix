@@ -3,18 +3,26 @@ using Timer = System.Timers.Timer;
 
 namespace MobileApp;
 
-public partial class MainPage : ContentPage {
-    readonly string[] _participants = { "Ewerton", "Carla", "Luiz", "Fernanda" };
-    readonly string[] _validNames = { "Carlos", "Júlio", "João", "Maria" };
+public partial class MainPage {
+
+    readonly string[] _participants = { "Pokemaobr", "Marlon França", "Luísa Kinas", "Lauro Gripa", "Lygia Veny Casas" };
+    readonly string[] _validNames = { "Phelipe Pereira", "Pedro Kons"};
 
     readonly Random _random = new Random();
 
     private Timer? _nameAnimationTimer;
-    private const int NameAnimationDuration = 3000; // 3s
-    private const int NameAnimationInterval = 100; // 100ms
+    private Timer? _valueAnimationTimer;
+
+    private const int NameAnimationDuration = 3000;
+    private const int NameAnimationInterval = 100;
+    private const int ValueAnimationDuration = 5000;
+    private const int ValueAnimationInterval = 100;
+
     private int _nameAnimationElapsedTime = 0;
+    private int _valueAnimationElapsedTime = 0;
 
     public MainPage() {
+
         InitializeComponent();
     }
 
@@ -27,35 +35,6 @@ public partial class MainPage : ContentPage {
         _nameAnimationTimer.Start();
     }
 
-    private void NameAnimationTimerElapsed(object? sender, ElapsedEventArgs e) {
-        _nameAnimationElapsedTime += NameAnimationInterval;
-
-        MainThread.BeginInvokeOnMainThread(() => { NameResultLabel.Text = GetRandomName(); });
-
-        if (_nameAnimationElapsedTime >= NameAnimationDuration) {
-            _nameAnimationTimer?.Stop();
-            _nameAnimationTimer?.Dispose();
-
-            MainThread.BeginInvokeOnMainThread(() => {
-                DrawNameButton.IsEnabled = true;
-                NameResultLabel.Text = DrawFinalName();
-            });
-        }
-    }
-
-    private string GetRandomName() {
-        return _participants[_random.Next(_participants.Length)];
-    }
-
-    private string DrawFinalName() {
-        return _validNames[_random.Next(_validNames.Length)];
-    }
-
-    private Timer? _valueAnimationTimer;
-    private const int ValueAnimationDuration = 5000; // 5s
-    private const int ValueAnimationInterval = 100; // 100ms
-    private int _valueAnimationElapsedTime = 0;
-
     private void OnDrawValueClicked(object sender, EventArgs e) {
         DrawValueButton.IsEnabled = false;
 
@@ -65,12 +44,24 @@ public partial class MainPage : ContentPage {
         _valueAnimationTimer.Start();
     }
 
-    private int RandomSmallNumber() {
-        return _random.Next(1, 100);
-    }
+    private void NameAnimationTimerElapsed(object? sender, ElapsedEventArgs e) {
+        _nameAnimationElapsedTime += NameAnimationInterval;
 
-    private string RandomDigit() {
-        return _random.Next(10).ToString();
+        MainThread.BeginInvokeOnMainThread(() => { NameResultLabel.Text = GetRandomName(); });
+
+        if (_nameAnimationElapsedTime >= NameAnimationDuration) {
+            _nameAnimationTimer?.Stop();
+            _nameAnimationTimer?.Dispose();
+
+            MainThread.BeginInvokeOnMainThread( async () => {
+                DrawNameButton.IsEnabled = true;
+                NameResultLabel.Text = DrawFinalName();
+                scrollingSortLabel.Text = "Parabéns " + NameResultLabel.Text;
+
+                fireworkLottie.IsVisible = true;
+                await AnimateLabel();
+            });
+        }
     }
 
     private void ValueAnimationTimer_Elapsed(object? sender, ElapsedEventArgs e) {
@@ -87,7 +78,7 @@ public partial class MainPage : ContentPage {
             _valueAnimationTimer?.Stop();
             _valueAnimationTimer?.Dispose();
 
-            MainThread.BeginInvokeOnMainThread(() => {
+            MainThread.BeginInvokeOnMainThread( async () => {
                 DrawValueButton.IsEnabled = true;
 
                 int chosenValue = RandomSmallNumber();
@@ -96,7 +87,37 @@ public partial class MainPage : ContentPage {
                 Value3Label.Text = "0";
                 Value2Label.Text = chosenValue.ToString("00")[0].ToString();
                 Value1Label.Text = chosenValue.ToString("00")[1].ToString();
+                scrollingSortLabel.Text = " VC GANHOU UM PIX DE R$ 0," + chosenValue + " CENTAVOS";
+                scrollingSortLabel.TextColor = Colors.Blue;
+
+                cashLottie.IsVisible = true;
+                await AnimateLabel();
             });
         }
+    }
+
+    private async Task AnimateLabel() {
+        double screenWidth = Application.Current.MainPage.Width;
+        double labelWidth = scrollingSortLabel.Width;
+
+        scrollingSortLabel.TranslationX = screenWidth + labelWidth;
+
+        await scrollingSortLabel.TranslateTo(-labelWidth - screenWidth, scrollingSortLabel.TranslationY, 6000, Easing.Linear);
+    }
+
+    private int RandomSmallNumber() {
+        return _random.Next(1, 100);
+    }
+
+    private string RandomDigit() {
+        return _random.Next(10).ToString();
+    }
+
+    private string GetRandomName() {
+        return _participants[_random.Next(_participants.Length)];
+    }
+
+    private string DrawFinalName() {
+        return _validNames[_random.Next(_validNames.Length)];
     }
 }
