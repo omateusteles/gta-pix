@@ -41,9 +41,7 @@ class AsaasManager {
             const { status, data } = response;
             const success = data?.success ?? (status >= 200 && status < 300);
 
-            const errorMessage = success
-                ? null
-                : data?.errors[0].description || "Erro desconhecido";
+            const errorMessage = this.buildErrorMessage(success, data)
 
             return { success, errorMessage, statusCode: status };
         } catch (error) {
@@ -74,14 +72,22 @@ class AsaasManager {
             const { status, data } = response;
             const success = data?.success ?? (status >= 200 && status < 300);
 
-            const errorMessage = success
-                ? null
-                : data?.errors[0].description || "Erro desconhecido";
+            const errorMessage = this.buildErrorMessage(success, data)
 
             return { success, errorMessage, statusCode: status, balance: data.balance };
         } catch (error) {
             return { success: false, errorMessage: error.message, statusCode: 500 };
         }
+    }
+
+    buildErrorMessage(success, data) {
+        if(success) return null
+        
+        if(!data){
+            return "Erro desconhecido. Se fodeu."
+        }
+
+        return data.errors[0].description
     }
 
     buildAddressKeyType(pixAddressKey) {
