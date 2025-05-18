@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
+    x:Class="MobileApp.MainPage">
+
+    <Grid
+        RowDefinitions="*,Auto"
+        Padding="32"
+        RowSpacing="24">
+
+        <VerticalStackLayout
+            Spacing="24">
+
+            <Label
+                Text="🎉 Sorteio Rápido 🎉"
+                FontSize="32"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"
+                TextColor="#004D40" />
+
+            <Label
+                Text="Participantes:"
+                FontSize="20"
+                FontAttributes="Bold"
+                TextColor="#00796B" />
+
+            <VerticalStackLayout>
+                <HorizontalStackLayout
+                    Spacing="10"
+                    HorizontalOptions="Center">
+                    <Label
+                        Text="Pokemaobr,"
+                        FontSize="18"
+                        TextColor="#00796B" />
+                    <Label Text="Marlon França" FontSize="18" TextColor="#00796B" />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout
+                    Spacing="10"
+                    HorizontalOptions="Center">
+                    <Label
+                        Text="Luísa Kinas,"
+                        FontSize="18"
+                        TextColor="#00796B" />
+                    <Label
+                        Text="Lauro Gripa"
+                        FontSize="18"
+                        TextColor="#00796B" />
+                </HorizontalStackLayout>
+                <Label Text="Lygia Veny Casas"
+                       FontSize="18"
+                       TextColor="#00796B"
+                       HorizontalOptions="Center" />
+            </VerticalStackLayout>
+
+            <Label
+                Text="Sorteado:"
+                FontSize="20"
+                FontAttributes="Bold"
+                TextColor="#00796B" />
+
+            <Grid
+                ColumnDefinitions="4*,1*"
+                ColumnSpacing="16">
+
+                <Border
+                    StrokeShape="RoundRectangle 8"
+                    Grid.Column="0"
+                    BackgroundColor="White"
+                    Padding="15"
+                    HeightRequest="70">
+
+                    <Label
+                        x:Name="NameResultLabel"
+                        FontSize="40"
+                        TextColor="#004D40"
+                        HorizontalOptions="Center" />
+
+                </Border>
+
+                <Button
+                    Grid.Column="1"
+                    x:Name="DrawNameButton"
+                    Text="🎲"
+                    BackgroundColor="#26A69A"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    CornerRadius="10"
+                    HeightRequest="70"
+                    WidthRequest="70"
+                    Clicked="OnDrawNameButtonClicked" />
+
+            </Grid>
+
+            <Label
+                Text="Valor:"
+                FontSize="20"
+                FontAttributes="Bold"
+                TextColor="#00796B" />
+
+            <Grid
+                ColumnDefinitions="4*, 1*"
+                ColumnSpacing="16">
+
+                <Grid
+                    Grid.Column="0"
+                    ColumnDefinitions="*, *, Auto, *, *"
+                    ColumnSpacing="8">
+
+                    <Border
+                        Grid.Column="0"
+                        StrokeShape="RoundRectangle 8"
+                        BackgroundColor="White"
+                        WidthRequest="60"
+                        HeightRequest="60">
+
+                        <Label
+                            x:Name="Value4Label"
+                            Text="0"
+                            FontSize="40"
+                            TextColor="#004D40"
+                            VerticalTextAlignment="Center"
+                            HorizontalOptions="Center" />
+
+                    </Border>
+
+                    <Border
+                        Grid.Column="1"
+                        StrokeShape="RoundRectangle 8"
+                        BackgroundColor="White"
+                        WidthRequest="60"
+                        HeightRequest="60">
+
+                        <Label
+                            x:Name="Value3Label"
+                            Text="0"
+                            FontSize="40"
+                            TextColor="#004D40"
+                            VerticalTextAlignment="Center"
+                            HorizontalOptions="Center" />
+
+                    </Border>
+
+                    <Label
+                        Grid.Column="2"
+                        Text=","
+                        FontSize="32"
+                        TextColor="#004D40"
+                        VerticalTextAlignment="End"
+                        HorizontalOptions="Center" />
+
+                    <Border
+                        Grid.Column="3"
+                        StrokeShape="RoundRectangle 8"
+                        BackgroundColor="White"
+                        WidthRequest="60"
+                        HeightRequest="60">
+
+                        <Label
+                            x:Name="Value2Label"
+                            Text="0"
+                            FontSize="40"
+                            TextColor="#004D40"
+                            VerticalTextAlignment="Center"
+                            HorizontalOptions="Center" />
+
+                    </Border>
+
+                    <Border
+                        Grid.Column="4"
+                        StrokeShape="RoundRectangle 8"
+                        BackgroundColor="White"
+                        WidthRequest="60"
+                        HeightRequest="60">
+
+                        <Label
+                            x:Name="Value1Label"
+                            Text="0"
+                            FontSize="40"
+                            TextColor="#004D40"
+                            VerticalTextAlignment="Center"
+                            HorizontalOptions="Center" />
+
+                    </Border>
+
+                </Grid>
+
+                <Button
+                    Grid.Column="1"
+                    x:Name="DrawValueButton"
+                    Text="🎲"
+                    BackgroundColor="#26A69A"
+                    CornerRadius="10"
+                    HeightRequest="70"
+                    WidthRequest="70"
+                    Clicked="OnDrawValueClicked" />
+
+            </Grid>
+
+        </VerticalStackLayout>
+
+        <Label
+            Grid.Row="1"
+            Text="Boa sorte para todos!"
+            FontSize="16"
+            TextColor="#00796B"
+            HorizontalOptions="Center"
+            VerticalOptions="End" />
+
+        <controls:SKLottieView
+            x:Name="fireworkLottie"
+            IsVisible="False"
+            Source="fireworkAnimation.json"
+            RepeatCount="-1"
+            VerticalOptions="Start"
+            HorizontalOptions="Center"
+            HeightRequest="300"
+            WidthRequest="300" />
+
+        <controls:SKLottieView
+            x:Name="cashLottie"
+            Margin="0,0,50,0"
+            IsVisible="False"
+            Source="cashAnimation.json"
+            RepeatCount="-1"
+            VerticalOptions="End"
+            HorizontalOptions="Center"
+            HeightRequest="250"
+            WidthRequest="250" />
+
+        <AbsoluteLayout
+            VerticalOptions="Center">
+
+            <Label
+                x:Name="scrollingSortLabel"
+                FontSize="50"
+                TextColor="DeepPink"
+                VerticalOptions="Center"
+                FontFamily="BungeeRegular"
+                TextTransform="Uppercase"
+                AbsoluteLayout.LayoutBounds="1,0.5,AutoSize,AutoSize"
+                AbsoluteLayout.LayoutFlags="PositionProportional" />
+
+        </AbsoluteLayout>
+
+    </Grid>
+
+</ContentPage>
